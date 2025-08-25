@@ -34,13 +34,17 @@ jobs:
 
       - name: Terraform Init
         run: terraform init -input=false
+        working-directory: Azure
 
       - name: Terraform Validate
         run: terraform validate
+        working-directory: Azure
 
       - name: Terraform Plan
         run: terraform plan -out tfplan -input=false
+        working-directory: Azure
 
       - name: Terraform Apply (on workflow_dispatch or main)
         if: github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main'
         run: terraform apply -auto-approve tfplan
+        working-directory: Azure
