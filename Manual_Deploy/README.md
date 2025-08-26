@@ -1,11 +1,5 @@
 # Kubernetes in the Cloud
 
-# Code
-
-The `start` and `end` folders contain the Terraform files 
-
-`start` has the code as it exists at the beginning of the demos and `end` has the code as it exists at the end of the demos.
-
 # Resources
 
 ## AWS
@@ -41,12 +35,22 @@ OpenTofu - [https://opentofu.org/](https://opentofu.org/)
 
 # LAB Commands
 
-
 ## AWS
 
-```
+``` bash
+git clone https://github.com/HeyMo0sh/k8s-cloud-training.git
 aws --version
 aws configure
+cd k8s-cloud-training/Manual_Deploy/aws
+
+terraform -v
+terraform init
+terraform validate
+terraform plan
+terraform apply
+terraform apply -auto-approve
+terraform destroy
+
 aws eks list-clusters
 
 # configure kubectl
@@ -55,10 +59,28 @@ aws eks --region $(terraform output -raw region) update-kubeconfig --name $(terr
 
 ## Azure
 
-```
+- Run in cloud shell
+git clone https://github.com/HeyMo0sh/k8s-cloud-training.git
+cd k8s-cloud-training/Manual_Deploy/azure
 az -v
 az upgrade
-az login --allow-no-subscriptions
+
+cd /Manual_Deploy
+
+### Terraform
+
+``` bash
+terraform -v
+terraform init
+terraform validate
+terraform plan
+terraform apply
+terraform apply -auto-approve
+terraform destroy
+```
+
+```
+
 az ad sp create-for-rbac -n aksdemo --skip-assignment
 az aks list
 az aks get-credentials --resource-group $(terraform output -raw resource_group_name) --name $(terraform output -raw kubernetes_cluster_name)
