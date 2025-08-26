@@ -8,17 +8,50 @@ click on cloudsheel icon
 git pull
 az aks get-credentials --resource-group rg-trimble-001 --name aks-cluster-001
 cd Manual_Deploy
+cp deployment.yml hamish.yml (where hamish is your name)
 
-kubectl apply -f deployment.yml
+using vi:
+I
+
+Change
+    metadata:
+      name: vote-service
+
+to 
+
+    metadata:
+      name: hamish-vote-service
+
+then
+
+    kind: Deployment
+    metadata:
+      name: vote-deployment
+
+to
+
+    kind: Deployment
+    metadata:
+      name: hamish-vote-deployment
+
+Hit ESC and then wq! to save
+
+kubectl apply -f hamish.yml
 kubectl get pods
 kubectl get svc
--- hit the IP addres sin a browser
+-- hit the IP address in a browser
 -- curl the IP address
 -- note the container
 -- hit the website again
 -- curl the IP address
 -- hopefully a different container
-kubectl delete -f deployment.yml
+
+-- or just lookat the website when you hit refresh
+
+kubectl scale deployment hamish-vote-deployment --replicas=3
+kubectl get pods
+
+kubectl delete -f hamish.yml
 
 ```
 
