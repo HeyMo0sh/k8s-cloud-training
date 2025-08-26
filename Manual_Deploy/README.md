@@ -5,6 +5,7 @@
 ``` text
 go to portal.azure.com
 click on cloudshell icon
+cd k8s-cloud-training
 git pull
 az aks get-credentials --resource-group rg-trimble-001 --name aks-cluster-001
 cd Manual_Deploy
