@@ -35,10 +35,25 @@ OpenTofu - [https://opentofu.org/](https://opentofu.org/)
 
 # LAB Commands
 
+Edit the main.tf file:
+
+cluster_name = "aksdemoXXX"
+
+CHange XXX to your initials
+
 ## AWS
 
+Change the following to be your number in the room:  ie Hamish is 11:
+
+  cidr = "10.11.0.0/16"
+  azs  = slice(data.aws_availability_zones.available.names, 0, 3)
+
+  private_subnets = ["10.11.1.0/24", "10.11.2.0/24", "10.11.3.0/24"]
+  public_subnets  = ["10.11.101.0/24", "10.11.102.0/24", "10.11.103.0/24"]
+
+
 ``` bash
-git clone https://github.com/HeyMo0sh/k8s-cloud-training.git
+
 aws --version
 aws configure
 cd k8s-cloud-training/Manual_Deploy/aws
@@ -60,12 +75,9 @@ aws eks --region $(terraform output -raw region) update-kubeconfig --name $(terr
 ## Azure
 
 - Run in cloud shell
-git clone https://github.com/HeyMo0sh/k8s-cloud-training.git
 cd k8s-cloud-training/Manual_Deploy/azure
 az -v
 az upgrade
-
-cd /Manual_Deploy
 
 ### Terraform
 
@@ -95,7 +107,6 @@ terraform validate
 terraform plan
 terraform apply
 terraform apply -auto-approve
-terraform destroy
 ```
 
 ## kubectl
@@ -108,6 +119,13 @@ kubectl get deployments
 kubectl get services
 ```
 
+Now go into main.tf and uncomment and 
+
+terraform validate
+terraform plan
+terraform apply
+terraform apply -auto-approve
+
 ## Helm
 
 ```
@@ -117,3 +135,5 @@ helm install my-hello-kubernetes opsmx/hello-kubernetes --version 1.0.3
 helm list
 helm uninstall my-hello-kubernetes
 ```
+
+terraform destroy

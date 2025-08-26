@@ -12,7 +12,7 @@ data "aws_availability_zones" "available" {
 }
 
 locals {
-  cluster_name = "awsdemo"
+  cluster_name = "awsdemoXXX"
 }
 
 module "vpc" {

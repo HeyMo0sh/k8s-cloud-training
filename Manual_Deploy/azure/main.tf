@@ -3,12 +3,12 @@ provider "azurerm" {
 }
 
 locals {
-  cluster_name = "aksdemo"
+  cluster_name = "aksdemoXXX"
 }
 
 resource "azurerm_resource_group" "default" {
   name     = "${local.cluster_name}-rg"
-  location = "East US"
+  location = "Australia East"
 
   tags = {
     environment = "Demo"

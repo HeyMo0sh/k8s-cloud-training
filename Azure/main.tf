@@ -3,8 +3,8 @@ provider "azurerm" {
 }
 
 locals {
-  cluster_name = "aksdemo"
-  location     = "East US"
+  cluster_name = "aksdemoXXX"
+  location     = "Australia East"
 }
 
 resource "azurerm_resource_group" "default" {
