@@ -5,7 +5,7 @@ on:
   push:
     branches: [ main ]
     paths:
-      - '**/*.tf'
+      - 'Azure/**/*.tf'
       - '.github/workflows/terraform-azure.yml'
 
 permissions:
