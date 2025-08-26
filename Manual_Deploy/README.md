@@ -2,16 +2,25 @@
 
 ## Log into Azure
 
+``` text
+go to portal.azure.com
+click on cloudsheel icon
 git pull
 az aks get-credentials --resource-group rg-trimble-001 --name aks-cluster-001
 cd Manual_Deploy
-kubectl delete -f deployment.yml
+
 kubectl apply -f deployment.yml
 kubectl get pods
 kubectl get svc
 -- hit the IP addres sin a browser
 -- curl the IP address
+-- note the container
 -- hit the website again
+-- curl the IP address
+-- hopefully a different container
+kubectl delete -f deployment.yml
+
+```
 
 # Resources
 
@@ -26,7 +35,6 @@ EKS - [https://aws.amazon.com/eks/](https://aws.amazon.com/eks/)
 CLI - [https://learn.microsoft.com/en-us/cli/azure/aks?view=azure-cli-latest](https://learn.microsoft.com/en-us/cli/azure/aks?view=azure-cli-latest)
 
 AKS - [https://azure.microsoft.com/en-us/products/kubernetes-service](https://azure.microsoft.com/en-us/products/kubernetes-service)
-
 
 ## Terraform
 
