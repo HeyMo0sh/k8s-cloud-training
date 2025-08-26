@@ -1,5 +1,18 @@
 # Kubernetes in the Cloud
 
+## Log into Azure
+
+git pull
+az aks get-credentials --resource-group rg-trimble-001 --name aks-cluster-001
+cd Manual_Deploy
+kubectl delete -f deployment.yml
+kubectl apply -f deployment.yml
+kubectl get pods
+kubectl get svc
+-- hit the IP addres sin a browser
+-- curl the IP address
+-- hit the website again
+
 # Resources
 
 ## AWS
@@ -39,7 +52,7 @@ Edit the main.tf file:
 
 cluster_name = "aksdemoXXX"
 
-CHange XXX to your initials
+Change XXX to your initials
 
 ## AWS
 
