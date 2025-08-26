@@ -4,7 +4,7 @@
 
 ``` text
 go to portal.azure.com
-click on cloudsheel icon
+click on cloudshell icon
 git pull
 az aks get-credentials --resource-group rg-trimble-001 --name aks-cluster-001
 cd Manual_Deploy
